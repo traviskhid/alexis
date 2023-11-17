@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue */
+            color: #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .wrapper {
+            position: relative;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border: 10px solid transparent; /* Transparent border */
+            animation: borderAnimation 5s infinite linear; /* Border animation */
+        }
+        @keyframes borderAnimation {
+            0% {
+                border-color: #ff69b4; /* Pink border color */
+            }
+            25% {
+                border-color: #32cd32; /* Lime green border color */
+            }
+            50% {
+                border-color: #87cefa; /* Light sky blue border color */
+            }
+            75% {
+                border-color: #ff1493; /* Deep pink border color */
+            }
+            100% {
+                border-color: #ff69b4; /* Pink border color */
+            }
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 3em;
+            color: #ff69b4; /* Pink */
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            color: #32cd32; /* Lime green */
+        }
+        .message {
+            margin-bottom: 30px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        /* Additional styles for interactive elements */
+        .element {
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .element:hover {
+            transform: scale(1.1);
+        }
+        .flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <h1>Happy Birthday, [ALEXIS AKWETEY]!</h1>
+        <p>Click anywhere to start the celebration!</p>
+    </div>
+    <div class="message">
+        <p>Dear [Alexis],</p>
+        <p>You mean the world to me. Wishing you the happiest of birthdays filled with love and joy!</p>
+    </div>
+    <div class="gallery">
+        <img src="https://thesite.org/wp-content/uploads/2019/04/Love-Messages-for-Her.jpg" alt="Image 1">
+        <img src="https://th.bing.com/th/id/OIP.gvoAnJdOvFr8_6abvbu66AHaFW?rs=1&pid=ImgDetMain" alt="Image 2">
+        <!-- Add more images -->
+    </div>
+    <!-- Additional elements or surprises -->
+</div>
+<div class="flowers">
+    <img src="https://th.bing.com/th/id/OIP.hsGfYOZz6UsjFnFMS1vymgHaEK?w=3840&h=2160&rs=1&pid=ImgDetMain" alt="flowers" class="flowers">
+    <style>
+        .flowers{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</div>
+<div class="confetti"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+    // JavaScript for interactive features
+    document.addEventListener('click', startCelebration);
+
+    function startCelebration(event) {
+        // Add animations, transitions, or any surprises here upon clicking
+        // You can trigger confetti effects, image slideshows, or hidden messages
+
+        // Display confetti at click position
+        showConfetti(event.clientX, event.clientY);
+
+        alert('Happy Birthday, [Her Name]!');
+        // Add more interactions or surprises here
+    }
+
+    function showConfetti(x, y) {
+        const confettiElem = document.createElement('div');
+        confettiElem.classList.add('confetti');
+        confettiElem.style.left = x + 'px';
+        confettiElem.style.top = y + 'px';
+        confettiElem.innerHTML = '&#10084;&#65039;'; // Heart emoji or any confetti image
+        document.body.appendChild(confettiElem);
+
+        // Remove confetti after animation
+        gsap.to(confettiElem, {
+            duration: 2,
+            y: '200%',
+            opacity: 0,
+            ease: 'power2.out',
+            onComplete: () => {
+                confettiElem.remove();
+            }
+        });
+    }
+
+    // Use GSAP functions for animations
+    gsap.to(".element", { duration: 2, x: 100, rotation: 360 });
+</script>
+</body>
+</html>
